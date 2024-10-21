@@ -40,6 +40,8 @@ class _AuthScreenState extends State<AuthScreen> {
       if (_isLogin) {
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
+        // ignore: avoid_print
+        print(userCredentials);
       } else {
         final userCredentials = await _firebase.createUserWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
@@ -64,7 +66,8 @@ class _AuthScreenState extends State<AuthScreen> {
       if (error.code == 'email-already-in-use') {
         //..............
       }
-      ScaffoldMessenger.of(context).clearSnackBars();
+      // ScaffoldMessenger.of(context).clearSnackBars();
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(error.message ?? 'Authenticaton faild.'),
