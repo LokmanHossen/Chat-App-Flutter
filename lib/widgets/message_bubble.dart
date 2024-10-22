@@ -68,8 +68,8 @@ class MessageBubble extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: isMe
-                          ? Colors.grey[300]
-                          : theme.colorScheme.secondary.withAlpha(200),
+                          ? const Color(0x81086177)
+                          : theme.colorScheme.primary.withAlpha(200),
                       borderRadius: BorderRadius.only(
                         topLeft: !isMe && isFirstInbSequence
                             ? Radius.zero
